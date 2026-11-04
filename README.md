@@ -47,6 +47,23 @@ An automated, role-based academic grading and verification portal for **Global R
 
 ---
 
+## Demo Accounts & Login Credentials
+
+All three roles sign in through the shared login page (`index.php`) using **Username**, **Institutional Email**, or **School/Employee ID**:
+
+| Persona / Role | Full Name | Username | Email / School ID | Password |
+| :--- | :--- | :--- | :--- | :--- |
+| **Administrator (Main)** | Ryan Kirby Corigal | `admin` | `ADMIN-2026-11-00001` | `Admin@GRC2026` |
+| **Administrator (Demo)** | Regina Mae Castillo | `demo.admin` | `ADMIN-2026-11-00002` | `GrcDemo!2026` |
+| **Professor (CCS / IT Sec A)** | Prof. Adrian Miguel Dela Cruz | `demo.faculty.ccs` | `adrian.miguel.dela.cruz@grc.edu.ph` / `demo.faculty.ccs@example.invalid` | `GrcDemo!2026` |
+| **Professor (CCS / IT Sec B)** | Prof. Angela Marie Villanueva | `demo.faculty.ccs2` | `angela.marie.villanueva@grc.edu.ph` / `demo.faculty.ccs2@example.invalid` | `GrcDemo!2026` |
+| **Professor (COA / Accountancy)** | Dr. Elena Patricia Reyes | `demo.faculty.coa` | `elena.patricia.reyes@grc.edu.ph` / `demo.faculty.coa@example.invalid` | `GrcDemo!2026` |
+| **Professor (COE / Education)** | Prof. Rafael Antonio Mendoza | `demo.faculty.coe` | `rafael.antonio.mendoza@grc.edu.ph` / `demo.faculty.coe@example.invalid` | `GrcDemo!2026` |
+| **Student (With Released Grades)** | Miguel Angelo Soriano | `demo.student17` | `STUD-2026-11-00017` / `demo.student17@example.invalid` | `GrcDemo!2026` |
+| **Student (BSIT 1st Year)** | Gabriel Luis Dela Cruz | `demo.student03` | `STUD-2026-11-00003` / `demo.student03@example.invalid` | `GrcDemo!2026` |
+
+---
+
 ## Persona Workflows
 
 ### 1. Administrator / Registrar (`registrar.php`)
