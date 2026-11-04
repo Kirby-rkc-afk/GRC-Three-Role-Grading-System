@@ -142,3 +142,4 @@ Sundin ang pagkakasunod-sunod na ito habang nagpe-present:
    - **Sagot:** Sinusunod ng system ang enrollment rule ng `SMS_WebSys`: sa isang school year at semester, isang active section lang kada `subject_code` ang puwedeng kunin ng student. Kapag sinubukang i-enroll ang student sa pangalawang section (hal. nasa `BSIT-1A` na tapos idadagdag sa `BSIT-1B`), awtomatikong hina-harang o sini-skip ito ng system.
 4. **Q: Paano kung may kailangang itama si Professor pagkatapos ma-release ang grades?**
    - **Sagot:** Gumagamit ang system ng **Immutable Release Snapshots**. Puwedeng i-click ni Admin ang **Return / reopen for correction** (may required reason sa audit log). Habang ine-edit ni Prof ang draft, ang nakikita ng student ay nananatiling yung naunang official released snapshot hangga't hindi ulit nire-release ni Admin ang bagong version.
+
