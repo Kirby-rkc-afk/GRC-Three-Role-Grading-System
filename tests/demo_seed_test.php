@@ -2,7 +2,7 @@
 declare(strict_types=1);
 if(PHP_SAPI!=='cli'){http_response_code(404);exit;}
 $name='grc_revision_demo_'.bin2hex(random_bytes(5));putenv('GRC_DB_NAME='.$name);
-require_once __DIR__.'/../database/seed_demo.php';
+require_once __DIR__.'/seed_fixtures.php';
 require_once __DIR__.'/../includes/backup.php';
 $server=new PDO('mysql:host='.DB_HOST.';port='.DB_PORT,DB_USER,DB_PASS,[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
 $checks=0;

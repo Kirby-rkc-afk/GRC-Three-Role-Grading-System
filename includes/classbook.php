@@ -20,18 +20,23 @@ function cbInstall(PDO $db): void {
     $base=file_get_contents(__DIR__.'/../database/grc_grading.sql');
     $base=explode('-- Seed Data:', $base)[0];
     $base=preg_replace('/CREATE DATABASE.*?;|USE `grc_grading`;/s','',$base);
-    $db->exec($base); $db->exec(file_get_contents(__DIR__.'/../database/classbook.sql'));
+    $db->exec($base);
     cbUpgrade($db);
 }
 function cbUpgrade(PDO $db): void {
     try {if(cbQuery($db,'SELECT version FROM classbook_migrations WHERE version=5')->fetchColumn())return;}catch(PDOException $e){}
-    $db->exec(file_get_contents(__DIR__.'/../database/classbook_v2.sql'));
-    $db->exec(file_get_contents(__DIR__.'/../database/classbook_v3.sql'));
+    $db->exec("CREATE TABLE IF NOT EXISTS classbook_policies (subject_id INT UNSIGNED PRIMARY KEY, lecture_percent DECIMAL(5,2) NOT NULL DEFAULT 65, midterm_percent DECIMAL(5,2) NOT NULL DEFAULT 50, passing_percent DECIMAL(5,2) NOT NULL DEFAULT 75, policy_label VARCHAR(150) NOT NULL DEFAULT 'Provisional defaults', conversion_json TEXT NULL, FOREIGN KEY(subject_id) REFERENCES subjects(id) ON DELETE RESTRICT) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS classbook_account_meta (role VARCHAR(20) NOT NULL, account_id INT UNSIGNED NOT NULL, revision INT UNSIGNED NOT NULL DEFAULT 1, PRIMARY KEY(role,account_id)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS classbook_login_limits (bucket CHAR(64) PRIMARY KEY, attempts INT UNSIGNED NOT NULL DEFAULT 0, window_started DATETIME NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS classbook_migrations (version INT PRIMARY KEY, applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT IGNORE INTO classbook_migrations(version) VALUES(2);
+ALTER TABLE classbook_account_meta ADD COLUMN IF NOT EXISTS public_id VARCHAR(32) NULL;
+ALTER TABLE classbook_account_meta ADD UNIQUE INDEX IF NOT EXISTS unique_public_id (public_id);");
     cbBackfillAccountIds($db);
     cbQuery($db,'INSERT IGNORE INTO classbook_migrations(version) VALUES(3)');
-    $db->exec(file_get_contents(__DIR__.'/../database/classbook_v4.sql'));
+    $db->exec("ALTER TABLE classbook_criteria ADD COLUMN IF NOT EXISTS exam_key VARCHAR(20) NULL;");
     cbQuery($db,'INSERT IGNORE INTO classbook_migrations(version) VALUES(4)');
-    $db->exec(file_get_contents(__DIR__.'/../database/classbook_v5.sql'));
+    $db->exec("ALTER TABLE classbook_settings ADD COLUMN IF NOT EXISTS grading_model VARCHAR(30) NOT NULL DEFAULT 'legacy_components';");
     cbQuery($db,'INSERT IGNORE INTO classbook_migrations(version) VALUES(5)');
 }
 function cbPolicy(PDO $db,int $subject): array {

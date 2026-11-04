@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 if(PHP_SAPI!=='cli'){http_response_code(404);exit;}
-require_once __DIR__.'/../database/seed_masterlist_demo.php';
+require_once __DIR__.'/seed_fixtures.php';
 require_once __DIR__.'/../includes/backup.php';
 $name=(string)getenv('GRC_DB_NAME');if(!preg_match('/^grc_revision_masterlist_[a-f0-9]{10}$/',$name))throw new RuntimeException('Isolated test database required.');
 $server=new PDO('mysql:host='.DB_HOST.';port='.DB_PORT,DB_USER,DB_PASS,[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
@@ -11,7 +11,6 @@ $manifest=seedMasterlistDemo($db);foreach($manifest['classes'] as $id)if(count(c
 $before=cbBackup($db)['tables'];seedMasterlistDemo($db);if($before!==cbBackup($db)['tables'])throw new RuntimeException('Demo seed must be idempotent.');
 echo "40-student classes and idempotency verified.\n";
 if(getenv('GRC_REALISTIC_DEMO')==='1'){
-    require_once __DIR__.'/../database/seed_realistic_demo.php';
     cbQuery($db,'INSERT INTO professors(employee_id,username,full_name,email,password_hash) VALUES(?,?,?,?,?)',['REAL-FACULTY','real.faculty','Verified Faculty','verified@example.invalid',password_hash('Untouched-password-2026',PASSWORD_DEFAULT)]);
     $untouched=cbQuery($db,"SELECT * FROM professors WHERE username='real.faculty'")->fetch();
     $history=$db->query('SELECT * FROM classbook_releases')->fetchAll();

@@ -36,14 +36,13 @@ An automated, role-based academic grading and verification portal for **Global R
 2. **Database Configuration (`includes/db.php`):**
    - Environment variables: `GRC_DB_HOST` (`127.0.0.1`), `GRC_DB_PORT` (`3306`), `GRC_DB_NAME` (`grc_grading`), `GRC_DB_USER` (`root`), `GRC_DB_PASS` (empty by default).
    - Required PHP extensions: `pdo_mysql`, `mbstring`, `iconv`.
-3. **First-Time Setup / Demo Seeding:**
-   - If the database has no administrator yet, `index.php` links to `setup.php` to create the first Registrar account.
-   - For local demo datasets, run:
-     ```powershell
-     C:\xampp\php\php.exe database/seed_demo.php --apply
-     C:\xampp\php\php.exe database/seed_masterlist_demo.php --apply
-     C:\xampp\php\php.exe database/seed_realistic_demo.php --apply
+3. **One-Step Database Import (`database/grc_grading.sql`):**
+   - Open **phpMyAdmin** (`http://localhost/phpmyadmin`) and import the single SQL file:
+     ```text
+     database/grc_grading.sql
      ```
+   - This single file creates the `grc_grading` database, all 19 tables, and pre-loads the complete realistic demo dataset (Administrators, Professors, Students, Class Offerings, Attendance, Scores, and Released Grade Snapshots).
+   - *(Alternatively, if starting from an empty database without importing seed data, `index.php` links to `setup.php` to initialize the schema and create the first Registrar account.)*
 
 ---
 

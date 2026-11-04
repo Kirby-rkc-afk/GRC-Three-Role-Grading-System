@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 if(PHP_SAPI!=='cli'){http_response_code(404);exit;}
-require_once __DIR__.'/../database/seed_school_emails.php';require_once __DIR__.'/../includes/backup.php';
+require_once __DIR__.'/seed_fixtures.php';require_once __DIR__.'/../includes/backup.php';
 $name='grc_revision_email_'.bin2hex(random_bytes(5));$checks=0;
 function checkEmail(bool $ok,string $why):void{global $checks;if(!$ok)throw new RuntimeException($why);$checks++;}
 $server=new PDO('mysql:host='.DB_HOST.';port='.DB_PORT,DB_USER,DB_PASS,[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
