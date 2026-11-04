@@ -1,0 +1,7 @@
+Options -Indexes
+<FilesMatch "^(\.env.*|.*\.(sql|log|bak))$">
+    Require all denied
+</FilesMatch>
+<FilesMatch "(?i)^(GRC_SYSTEM_MASTER_PLAN\.html|README\.(md|txt))$">
+    Require all denied
+</FilesMatch>

@@ -1,0 +1,16 @@
+.attendance-import-form>p{max-width:780px;color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:22px}
+.attendance-file{margin:4px 0 20px;padding:20px;border:1px solid var(--line);border-radius:9px;background:#f8f9fb;min-width:0}
+.attendance-file-heading{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.attendance-file-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:8px;color:var(--red);background:#f8eaf0;flex:0 0 40px}
+.attendance-file-heading label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin:0 0 3px}
+.attendance-file-heading p{font-size:12px;color:var(--muted);line-height:1.6;margin:0}
+.attendance-file input[type=file]{display:block;width:100%;max-width:100%;min-height:48px;margin:0;padding:0;border:1px solid #aeb5c0;border-radius:7px;background:#fff;color:var(--muted);font-family:inherit;font-size:13px;line-height:1.6;overflow:hidden}
+.attendance-file input[type=file]::file-selector-button{min-height:48px;padding:12px 18px;margin:0 14px 0 0;border:0;border-right:1px solid var(--red);background:var(--red);color:#fff;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:background .15s}
+.attendance-file input[type=file]::file-selector-button:hover{background:var(--red-dark)}
+.attendance-file input[type=file]:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.attendance-file input[type=file]:disabled::file-selector-button{cursor:not-allowed;opacity:.6}
+.attendance-file-status{margin:12px 0 0;font-size:12px;color:var(--muted);line-height:1.65;overflow-wrap:anywhere}
+.attendance-file.has-file .attendance-file-status{color:var(--green)}
+.attendance-import-format{font-size:12px;line-height:1.7;color:var(--muted);margin:0 0 20px;max-width:780px}
+@media(max-width:600px){.attendance-file{padding:16px}.attendance-file input[type=file]{font-size:12px}.attendance-file input[type=file]::file-selector-button{padding:12px;margin-right:9px;font-size:12px}.attendance-file-heading{align-items:flex-start;gap:10px}}
+@media(prefers-reduced-motion:reduce){.attendance-file input[type=file]::file-selector-button{transition:none}}

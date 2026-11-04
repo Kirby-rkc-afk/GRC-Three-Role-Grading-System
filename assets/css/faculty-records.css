@@ -1,0 +1,51 @@
+/* Table actions work independently of the administrator and class stylesheets. */
+.workspace-app .faculty-record-action{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;padding:10px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--red);text-decoration:none}
+.workspace-app .faculty-record-action:hover{background:#fff1f2;border-color:#d9a9b7}
+.faculty-record-action .ui-icon{width:18px;height:18px}
+#activity-score-sheet .panel-heading,#meeting-attendance-sheet .panel-heading{margin-bottom:20px}
+#activity-score-sheet h2,#meeting-attendance-sheet h2{margin:8px 0}
+
+.faculty-record-back .ui-icon{transform:rotate(180deg)}
+
+/* Class context banner */
+.faculty-class-context{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;padding:1.15rem 1.35rem;background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:0.85rem}
+.faculty-class-context h2{margin:0.2rem 0 0.25rem;font-size:1.25rem}
+.faculty-class-context p{margin:0;color:var(--muted);font-size:0.9rem}
+
+/* Quick class section tabs for professor — wraps cleanly without scrollbar artifacts */
+.faculty-class-tabs{display:flex;flex-wrap:wrap;flex-wrap:balance;gap:6px;padding:6px;background:#f8fafc;border:1px solid var(--line);border-radius:10px;margin:0 0 1.5rem}
+.faculty-class-tabs a{display:inline-flex;align-items:center;gap:7px;min-height:42px;padding:8px 15px;font-size:13.5px;font-weight:600;color:var(--muted);text-decoration:none;border-radius:7px;border:1px solid transparent;white-space:nowrap;transition:background .15s,color .15s,border-color .15s,box-shadow .15s}
+.faculty-class-tabs a:hover{color:var(--ink);background:rgba(153,0,36,0.04)}
+.faculty-class-tabs a[aria-current="page"]{color:var(--red);background:#fff;border-color:#e2e8f0;box-shadow:0 1px 2px rgba(15,23,42,0.06);font-weight:700}
+.faculty-class-tabs .ui-icon{width:16px;height:16px}
+
+/* Single-input score cell and quick-mark pills */
+.score-quick-input{width:105px;min-height:40px;padding:6px 10px;text-align:center;font-weight:700;font-size:0.95rem;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);font-variant-numeric:tabular-nums;transition:border-color .15s,box-shadow .15s}
+.score-quick-input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(153,0,36,0.12)}
+.score-quick-input.input-error{border-color:#dc2626;background:#fef2f2}
+
+.quick-pill-group{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:center}
+.quick-pill{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:4px 10px;font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:6px;background:#f8fafc;color:var(--ink);cursor:pointer;transition:background .12s,border-color .12s,color .12s}
+.quick-pill:hover:not(:disabled){background:#f1f5f9;border-color:#cbd5e1}
+.quick-pill.active-present,.quick-pill.active-scored{background:#ecfdf5;border-color:#6ee7b7;color:#065f46}
+.quick-pill.active-late{background:#fffbeb;border-color:#fcd34d;color:#92400e}
+.quick-pill.active-absent,.quick-pill.active-missing{background:#fef2f2;border-color:#fca5a5;color:#991b1b}
+.quick-pill.active-excused{background:#eff6ff;border-color:#93c5fd;color:#1e40af}
+
+.score-status-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.score-status-badge.status-scored{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+.score-status-badge.status-missing{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.score-status-badge.status-excused{background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe}
+.score-status-badge.status-not_graded{background:#f8fafc;color:#64748b;border:1px solid #e2e8f0}
+.score-status-badge.status-invalid{background:#fef2f2;color:#dc2626;border:1px solid #fca5a5}
+
+.sheet-toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;padding:0.75rem 1rem;background:#f8fafc;border:1px solid var(--line);border-radius:8px;margin-bottom:1rem}
+.sheet-summary-pills{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+
+.collapsible-card summary{cursor:pointer;font-weight:700;font-size:1.05rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;list-style:none}
+.collapsible-card summary::-webkit-details-marker{display:none}
+.collapsible-card summary::after{content:"Show";font-size:12px;font-weight:600;color:var(--red);padding:4px 10px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.collapsible-card[open] summary::after{content:"Hide"}
+.collapsible-card[open] summary{margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--line)}
+
+.inline-action{display:inline;margin:0}

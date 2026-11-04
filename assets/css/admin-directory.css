@@ -1,0 +1,65 @@
+/* The enrollment portal's directory rhythm, adapted to grading workflows. */
+.administrator-app{--directory-space:20px;--directory-heading:#0f172a;--directory-border:#e2e8f0}
+.directory-toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:18px}
+.directory-help{margin:0;color:var(--muted);font-size:13px;line-height:1.6;max-width:620px}
+.directory-toolbar .button{flex-shrink:0}
+.administrator-app .account-tabs{display:flex;align-items:center;flex-wrap:wrap;flex-wrap:balance;gap:6px;padding:6px;border:1px solid var(--directory-border);border-radius:10px;background:#f8fafc;margin:0 0 18px}
+.administrator-app .account-tabs a{margin:0;min-height:42px;padding:8px 15px;border:1px solid transparent;border-radius:7px;font-size:13.5px;font-weight:600;color:var(--muted);white-space:nowrap}
+.administrator-app .account-tabs a.active{background:#fff;border-color:#e2e8f0;color:var(--red);box-shadow:0 1px 2px rgba(15,23,42,0.06);font-weight:700}
+.administrator-app .account-tabs a:hover{color:var(--ink);background:rgba(153,0,36,0.04)}
+.administrator-app .admin-filters{padding:18px 20px;margin-bottom:18px;border-color:var(--directory-border);gap:16px}
+.administrator-app .admin-filters .field{font-size:12px}
+.administrator-app .records-panel{border-color:var(--directory-border);box-shadow:0 1px 3px #0f172a05}
+.administrator-app .records-panel .panel-heading{align-items:center;margin-bottom:20px}
+.administrator-app .records-panel .panel-heading h2{display:flex;align-items:center;gap:10px;color:var(--directory-heading);margin-bottom:6px}
+.administrator-app .records-panel th{font-size:11px;color:#475569;letter-spacing:.04em;white-space:nowrap}
+.administrator-app .records-panel td{padding-top:16px;padding-bottom:16px;font-size:13px}
+.administrator-app .records-panel td:first-child{min-width:230px}
+.administrator-app .records-panel td strong{font-size:13px;line-height:1.6}
+.administrator-app .records-panel td .cell-subtitle{font-size:11px;line-height:1.6;margin-top:5px;overflow-wrap:anywhere}
+.administrator-app .records-panel tbody tr:hover{background:#fafbfc}
+.administrator-app .directory-action,.administrator-app .records-panel .account-settings-action{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;min-height:44px;padding:10px;border:1px solid var(--directory-border);border-radius:7px;background:#fff;color:var(--red)}
+.administrator-app .directory-action:hover,.administrator-app .records-panel .account-settings-action:hover{background:#fff1f2;border-color:#fecdd3}
+.administrator-app .directory-action .ui-icon{width:18px;height:18px}
+.administrator-app .create-account-panel{max-width:1000px;margin:0;scroll-margin-top:110px}
+.administrator-app .create-account-panel .panel-heading{padding-bottom:20px;border-bottom:1px solid var(--directory-border);margin-bottom:24px;flex-wrap:wrap}
+.administrator-app .create-account-panel .panel-heading>div{max-width:600px}
+.administrator-app .create-account-panel .form-grid{gap:0 24px}
+.administrator-app .create-account-panel .settings-help{font-size:12px;line-height:1.7;padding:14px 16px;background:#f8fafc;border:1px solid var(--directory-border);border-radius:7px;margin:4px 0 20px}
+.administrator-app .create-account-panel .actions{gap:12px;margin-bottom:0}
+.administrator-app .create-account-panel .actions .button{padding:10px 16px}
+.admin-dashboard{display:flex;flex-direction:column;gap:20px}
+.admin-dashboard .admin-page-top{margin-bottom:0;align-items:flex-start;flex-wrap:wrap;gap:16px}
+.admin-dashboard .admin-page-top>div:first-child{flex:1;min-width:260px}
+.admin-dashboard .admin-page-top h1{font-size:26px;color:var(--directory-heading);letter-spacing:-.035em}
+.dashboard-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.admin-dashboard .admin-metrics{margin-bottom:0;gap:14px}
+.admin-dashboard .stat-card{position:relative;border-color:var(--directory-border);border-radius:10px;padding:20px;background:#fff;box-shadow:0 1px 3px #0f172a05}
+.admin-dashboard .stat-card strong{font-size:32px;letter-spacing:-.04em;margin-top:12px;color:var(--directory-heading)}
+.admin-dashboard .stat-card small{font-size:12px}
+.admin-dashboard .admin-dashboard-grid{margin-bottom:0;gap:20px}
+.admin-dashboard .admin-panel{border-color:var(--directory-border);border-radius:10px;box-shadow:0 1px 3px #0f172a05}
+.admin-dashboard .panel-heading{margin-bottom:20px}
+.admin-dashboard .panel-heading h2{font-size:17px;color:var(--directory-heading)}
+.admin-dashboard .task-row strong,.admin-dashboard .activity-list strong{font-size:13px}
+.admin-dashboard .task-row small,.admin-dashboard .activity-list p,.admin-dashboard .grade-workflow p{font-size:12px;line-height:1.7}
+.admin-dashboard .activity-list time{font-size:11px}
+.admin-dashboard .getting-started{padding:18px;margin-top:18px}
+.admin-dashboard .grade-workflow{gap:24px}
+.admin-dashboard .grade-workflow strong{font-size:13px}
+@media(max-width:760px){
+ .directory-toolbar{align-items:flex-start;gap:12px}
+ .directory-toolbar .directory-help{flex-basis:100%}
+ .administrator-app .account-tabs a{font-size:12px;padding:9px 10px}
+ .administrator-app .admin-filters{padding:16px}
+ .administrator-app .records-panel td:first-child{min-width:210px}
+ .administrator-app .create-account-panel .form-grid{grid-template-columns:minmax(0,1fr)}
+ .administrator-app .create-account-panel .panel-heading{gap:16px}
+ .admin-dashboard .admin-page-top h1{font-size:24px}
+ .dashboard-actions{width:100%;gap:12px}
+ .admin-dashboard .stat-card{padding:16px}
+ .admin-dashboard .stat-card strong{font-size:28px}
+ .admin-dashboard .stat-card small{font-size:11px}
+ .admin-dashboard .grade-workflow{grid-template-columns:minmax(0,1fr);gap:18px}
+}
+@media print{.directory-toolbar,.dashboard-actions{display:none!important}.admin-dashboard .admin-panel,.admin-dashboard .stat-card{box-shadow:none}}
